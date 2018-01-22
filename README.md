@@ -1,11 +1,9 @@
 
-### Testing TeamCity
+### CI with TeamCity and Dokcer
 
-Description 
-Simple java app to test TeamCity build and setup
+Working with TeamCity + Docker to setup a CI pipeline for a Java REST app
 
 #### Java REST App
-
 Here is the Docker command to run the app with a Tomcat 8.0 server. Please take care that we have to use Java 1.7 because of this specifical Tomcat version. I added the war copy command, so our app will be deployed automatically. 
 ```sh
 docker run --rm -v /your_path/java-teamcity_test/java test/target/javatest.war:/usr/local/tomcat/webapps/javatest.war -it -p 8585:8080 --name=tomcat tomcat:8.0
@@ -42,9 +40,12 @@ The final step, you have to authorize manually your local agent here:
 http://localhost:8111/agents.html?tab=unauthorizedAgents
 ```
 
-
-#### Useful commands 
-Remove all the containers based from an image 
+#### Deploying the artifact to a Tomcat container
+In the new version on TeamCity is possible to deploy directly to a container locally or remote, we are going to use the same Tomcat 8.0 image, but adding context and user setup. Go to */tomcat* folder and then build the Dockerfile.
 ```sh
-docker ps -a | awk '{ print $1,$2 }' | grep <image_name> | awk '{print $1 }' | xargs -I {} docker rm {}
+docker build -t twogg/tomcat .
+```
+Now run the container, we re using admin/admin as user and password, and 8787 is going to be our deploy port for TeamCity.
+```sh
+docker run -d -p 8787:8080 --name tctomcat twogg/tomcat
 ```
