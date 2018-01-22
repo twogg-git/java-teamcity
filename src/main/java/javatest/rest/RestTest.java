@@ -18,7 +18,7 @@ public class RestTest {
 
     @RequestMapping("/")
     public String entryPoint() {
-        return "JavaTest Running! "+new Date().toString();
+        return "JavaTest Deployed!!! "+new Date().toString();
     }
 
     @RequestMapping("/hello")
