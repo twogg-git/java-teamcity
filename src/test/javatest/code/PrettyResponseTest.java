@@ -17,6 +17,7 @@ public class PrettyResponseTest {
     public void testGetResponseError() {
         PrettyResponse tester = new PrettyResponse();
         String response = tester.getResponse();
-        Assert.assertNotEquals(response, "Fail!!!");
+        Assert.assertEquals(response, "Fail!!!");
+        //Assert.assertNotEquals(response, "Fail!!!");
     }
 }
