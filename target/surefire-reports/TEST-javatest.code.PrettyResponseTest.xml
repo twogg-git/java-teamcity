@@ -7,7 +7,7 @@
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib"/>
     <property name="user.country.format" value="CO"/>
     <property name="gopherProxySet" value="false"/>
-    <property name="maven.multiModuleProjectDirectory" value="/Users/catherincruz/Devs/java-teamcity_test/javatest"/>
+    <property name="maven.multiModuleProjectDirectory" value="/Users/catherincruz/Devs/javatest"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -18,7 +18,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/catherincruz/Devs/java-teamcity_test/javatest"/>
+    <property name="user.dir" value="/Users/catherincruz/Devs/javatest"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="9.0.1+11"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
@@ -64,7 +64,7 @@
     <property name="sun.cpu.isalist" value=""/>
   </properties>
   <testcase classname="javatest.code.PrettyResponseTest" name="testGetResponseError" time="0.009">
-    <failure message="expected:&lt;[Test OK]!&gt; but was:&lt;[Error]!&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[Test OK]!&gt; but was:&lt;[Error]!&gt;
+    <failure message="expected:&lt;[Test OK]!&gt; but was:&lt;[Fail!!]!&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: expected:&lt;[Test OK]!&gt; but was:&lt;[Fail!!]!&gt;
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
 	at javatest.code.PrettyResponseTest.testGetResponseError(PrettyResponseTest.java:20)
