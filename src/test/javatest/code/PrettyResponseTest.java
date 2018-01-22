@@ -10,7 +10,7 @@ public class PrettyResponseTest {
     public void testGetResponse() {
         PrettyResponse tester = new PrettyResponse();
         String response = tester.getResponse();
-        Assert.assertEquals(response, "Test OK!");
+        Assert.assertEquals(response, "Test OK Gooo JUnit!");
     }
 
     @Test
