@@ -23,16 +23,19 @@ I added two more rest services a dummy hello call */javatest/hello* and a test/i
 #### TeamCity Server 
 First create two folders */data* and */logs* to storage what TC needs. This image will take a while to download (current local size used: 1.52GB).
 ```sh
-docker run -it --name teamcity-instance -v /your_path/teamcity/data:/data/teamcity_server/datadir -v /your_path/teamcity/logs:/opt/teamcity/logs -p 8111:8111 jetbrains/teamcity-server
+docker run -it --name tcserver -v /your_path/teamcity/data:/data/teamcity_server/datadir -v /your_path/teamcity/logs:/opt/teamcity/logs -p 8111:8111 jetbrains/teamcity-server
 ```
 I'm using the internal HSQLDB database provided by the image to avoid futher setup, if you have time use an external option!
 
 #### TeamCity Agent 
 There is two version for agents, in my case, I used the standard one, you can try with the minimal. The standard version is another heavy image to download, so be patient (current local size used: 1.03GB).
 ```sh
-docker run -it -e SERVER_URL="your_ip:8111" -p 9090:9090 -v /your_path/teamcity/agent:/data/teamcity_agent/conf jetbrains/teamcity-agent
+docker run --name tcagent -it -e SERVER_URL="your_ip:8111" -p 9090:9090 -v /your_path/teamcity/agent:/data/teamcity_agent/conf jetbrains/teamcity-agent
 ```
-I found out that TeamCity Agents will not work with *localhost* as SERVER_URL, so please use your IP.
+TeamCity Agents will not work with *localhost* as SERVER_URL, so please use your IP. If you change your IP or network connection, modify *serverUrl* inside buildAgent.properties then restart the docker
+```sh
+docker start tcagent
+```
 
 #### Adding local agent to the server
 The final step, you have to authorize manually your local agent here:
@@ -41,6 +44,8 @@ http://localhost:8111/agents.html?tab=unauthorizedAgents
 ```
 
 #### Deploying the artifact to a Tomcat container
+
+##### Tomcar container
 In the new version on TeamCity is possible to deploy directly to a container locally or remote, we are going to use the same Tomcat 8.0 image, but adding context and user setup. Go to */tomcat* folder and then build the Dockerfile.
 ```sh
 docker build -t twogg/tomcat .
