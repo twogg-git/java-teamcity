@@ -1,5 +1,6 @@
 
-### CI with Codeship and Dokcer
+### Java + Codeship + Dokcer
+[![Codeship Status for twogg-git/java-teamcity](https://app.codeship.com/projects/b1a1da20-d275-0137-634b-26e80c92f4d3/status?branch=master)](https://app.codeship.com/projects/369866)
 
 Working with TeamCity + Docker to setup a CI pipeline for a Java REST app
 
