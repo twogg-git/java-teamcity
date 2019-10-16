@@ -1,5 +1,5 @@
 
-### CI with TeamCity and Dokcer
+### CI with Codeship and Dokcer
 
 Working with TeamCity + Docker to setup a CI pipeline for a Java REST app
 
